@@ -1,8 +1,9 @@
 package org.example.pageobjects;
 
 import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.WaitUntilState;
 import io.github.uchagani.stagehand.annotations.PageObject;
+
+import static com.microsoft.playwright.options.WaitUntilState.DOMCONTENTLOADED;
 
 @PageObject
 public class NavigationPage {
@@ -14,7 +15,7 @@ public class NavigationPage {
     }
 
     public void openUrl(String url) {
-        page.navigate(url, (new Page.NavigateOptions()).setWaitUntil(WaitUntilState.DOMCONTENTLOADED));
+        page.navigate(url, new Page.NavigateOptions().setWaitUntil(DOMCONTENTLOADED));
     }
 
 }
